@@ -83,8 +83,8 @@ center {
 				ccaption.innerText = data[i].caption; //Put caption instead of id here
 				var cimg = document.createElement('img');
 				cimg.src = data[i].url; //Put memeUrl instead of id here
-				cimg.style.width = "200px";
-				cimg.style.height = "200px";
+				cimg.style.width = "400px";
+				cimg.style.height = "400px";
 				parent = document.getElementById("out");
 				parent.appendChild(cname);
 				parent.appendChild(cdate);
