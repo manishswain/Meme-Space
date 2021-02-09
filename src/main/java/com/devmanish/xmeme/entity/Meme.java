@@ -7,6 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "meme")
 public class Meme {
@@ -25,6 +27,7 @@ public class Meme {
 	private String caption;
 
 	@Column(name = "date")
+	//@JsonIgnore
 	private String date;
 
 	public Meme() {
