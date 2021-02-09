@@ -72,7 +72,7 @@ center {
 	</div>
 
 	<script type="text/javascript">
-		var staticUrl = 'http://localhost:8080/memes';
+		var staticUrl = 'https://vast-dusk-16065.herokuapp.com/memes';
 		$.getJSON(staticUrl, function(data) {
 			for (i = 0; i < data.length; i++) {
 				var cname = document.createElement('p');
