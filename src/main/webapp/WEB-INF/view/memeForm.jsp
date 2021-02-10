@@ -51,7 +51,7 @@ center {
 <body>
 	<div>
 		<center>
-			<h1>Meme Stream</h1>
+			<h1>Meme Space</h1>
 		</center>
 	</div>
 	<div class="container no_one" id="top">
@@ -66,12 +66,12 @@ center {
 			<div class="mb-3">
 				<label for="ocaption" class="form-label">Caption</label>
 				<form:textarea class="form-control" id="ocaption" rows="3"
-					placeholder="Be creative with the caption" path="caption" />
+					placeholder="Enter something creative!!" path="caption" />
 			</div>
 			<div class="mb-3">
 				<label for="ourl" class="form-label">Meme URL</label>
 				<form:input type="text" class="form-control" id="ourl"
-					placeholder="Enter URL of your meme here" path="url" />
+					placeholder="Enter in this format-https://img.bhs4.com/be/5/large.jpg" path="url" />
 			</div>
 			<button type="submit" class="btn btn-primary">Submit Meme</button>
 		</form:form>
