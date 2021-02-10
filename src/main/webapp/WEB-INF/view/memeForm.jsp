@@ -34,6 +34,16 @@ center {
 	width: 50%;
 	margin-left: 25%;
 }
+
+.move {
+	float: right;
+	position: sticky;
+	top: 0;
+}
+
+.move:hover {
+	background-color: green;
+}
 </style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -44,7 +54,7 @@ center {
 			<h1>Meme Stream</h1>
 		</center>
 	</div>
-	<div class="container no_one">
+	<div class="container no_one" id="top">
 		<form:form class="oform" action="processForm" modelAttribute="memes"
 			method="POST">
 			<%-- <form:hidden path="memeId"/> --%>
@@ -67,6 +77,7 @@ center {
 		</form:form>
 	</div>
 	<hr>
+	<a href="#top"><button class="move">Move to Top</button></a>
 	<div class="container no_two">
 		<div class="no_two_inside" id="out"></div>
 	</div>
@@ -74,22 +85,59 @@ center {
 	<script type="text/javascript">
 		var staticUrl = 'https://vast-dusk-16065.herokuapp.com/memes';
 		$.getJSON(staticUrl, function(data) {
-			for (i = 0; i < data.length; i++) {
-				var cname = document.createElement('p');
-				cname.innerText = data[i].name; //Put name instead of id here
-				var cdate = document.createElement('p');
-				cdate.innerText = data[i].date; //Put date instead of id here
-				var ccaption = document.createElement('p');
-				ccaption.innerText = data[i].caption; //Put caption instead of id here
-				var cimg = document.createElement('img');
-				cimg.src = data[i].url; //Put memeUrl instead of id here
-				cimg.style.width = "400px";
-				cimg.style.height = "400px";
-				parent = document.getElementById("out");
-				parent.appendChild(cname);
-				parent.appendChild(cdate);
-				parent.appendChild(ccaption);
-				parent.appendChild(cimg);
+			for (i = 0; i < 20; i++) {
+				console.log(data[i]);
+				var divcard = document.createElement('div');
+				var divcardbd = document.createElement('div');
+				var cardtitle = document.createElement('h5');
+				var cardtext = document.createElement('p');
+				var dt = document.createElement('span');
+				var cardtext2 = document.createElement('p');
+				var dtin = document.createElement('small');
+				var image = document.createElement('img');
+				var space = document.createElement('br');
+				var space2 = document.createElement('br');
+				var icon0 = document.createElement('a');
+				var icon = document.createElement('span');
+				divcard.className = "card";
+				divcardbd.className = "card-body";
+				cardtitle.className = "card-title";
+				cardtext.className = "card-text";
+				cardtext2.className = "card-text";
+				dtin.className = "text-muted";
+				image.className = "card-img-bottom";
+				icon.className = "badge bg-secondary";
+				icon0.href = "#";
+				icon.innerText = "Edit";
+				icon.style.marginLeft = "20px";
+				icon.title = "hui";
+				icon0.appendChild(icon);
+				cardtitle.innerText = data[i].name;
+				cardtext.innerText = data[i].caption;
+				dtin.innerHTML = data[i].date;
+				cardtext2.appendChild(dtin);
+				cardtext2.style.display = "inline";
+				cardtext2.style.marginLeft = "20px";
+				dt.appendChild(cardtext2);
+				image.src = data[i].url;
+				image.style.height = "auto";
+				image.style.width = "400px";
+				image.alt = "Meme Not Found";
+				cardtitle.style.display = "inline";
+				divcardbd.appendChild(cardtitle);
+				divcardbd.appendChild(dt);
+				divcardbd.appendChild(icon0);
+				divcardbd.appendChild(cardtext);
+				divcardbd.style.height = "auto";
+				divcardbd.style.width = "400px";
+				divcard.appendChild(divcardbd);
+				divcard.appendChild(image);
+				var output = document.getElementById("out");
+				divcard.style.height = "auto";
+				divcard.style.width = "400px";
+				output.appendChild(divcard);
+				output.appendChild(space);
+				output.appendChild(space2);
 			}
 		});
 	</script>
@@ -97,7 +145,7 @@ center {
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-		crossorigin="anonymous">		
+		crossorigin="anonymous">
 	</script>
 </body>
 </html>

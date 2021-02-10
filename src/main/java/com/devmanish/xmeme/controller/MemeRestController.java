@@ -55,7 +55,6 @@ public class MemeRestController
 	@PatchMapping("/memes/{id}")
 	public void updateMeme(@PathVariable("id")Integer id,@RequestBody Meme meme)
 	{
-		System.out.println(meme);
 		repository.updateMemeSetUrlCaption(meme.getUrl(),meme.getCaption(),id);
 	}
 	
